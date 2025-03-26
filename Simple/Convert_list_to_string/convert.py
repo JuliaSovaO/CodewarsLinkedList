@@ -9,14 +9,14 @@ class Node:
         self.next = next
 
 
-def stringify(node):
-    first = node.head
+def stringify(node: Node):
+    first = node
     nodes = []
     while first:
-        nodes.append(first.data)
+        nodes.append(str(first.data))
         first = first.next
-    nodes.append(first.data)
-    return " -> ".join(nodes) if nodes else "None"
+    nodes.append(str(first))
+    return " -> ".join(nodes)
 
 
 print(stringify(Node(0, Node(1, Node(2, Node(3))))))
