@@ -21,6 +21,8 @@ def get_nth(node, index):
     while current:
         terms.append(current.data)
         current = current.next
+    if not isinstance(index, int) or not 0 <= index < len(terms):
+        raise IndexError("Invalid index value should throw error.")
     return Node(terms[index])
 
 
