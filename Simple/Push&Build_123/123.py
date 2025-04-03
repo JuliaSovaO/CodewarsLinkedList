@@ -13,12 +13,11 @@ class Node:
 
 
 def push(head, data):
-    if isinstance(head, Node):
-        prev = head.data
-        head.data = data
-        head.next = Node(prev)
-        return head
-    return Node(data)
+    if not head:
+        return Node(data)
+    new_node = Node(data)
+    new_node.next = head
+    return new_node
 
 
 def build_one_two_three():
