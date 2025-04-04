@@ -11,6 +11,7 @@ class Node:
 def swap_pairs(head):
     if not head or not head.next:
         return head
+    new_head = head.next
     prev = None
     current = head
 
@@ -19,23 +20,21 @@ def swap_pairs(head):
         second = current.next
         second.next = current
         current.next = next_pair
+
         if prev:
             prev.next = second
         prev = current
         current = next_pair
-
-        if current and current.next:
-            current = current.next
-    return head
+    return new_head
 
 
-"""
-length     original                       expected
-------------------------------------------------------------------
-  0     ()                             ()
-  1     (A)                            (A)
-  2     (A --> B)                      (B --> A)
-  3     (A --> B --> C)                (B --> A --> C)
-  4     (A --> B --> C --> D)          (B --> A --> D --> C)
-  5     (A --> B --> C --> D --> E)    (B --> A --> D --> C --> E)
-"""
+# """
+# length     original                       expected
+# ------------------------------------------------------------------
+#   0     ()                             ()
+#   1     (A)                            (A)
+#   2     (A --> B)                      (B --> A)
+#   3     (A --> B --> C)                (B --> A --> C)
+#   4     (A --> B --> C --> D)          (B --> A --> D --> C)
+#   5     (A --> B --> C --> D --> E)    (B --> A --> D --> C --> E)
+# """
