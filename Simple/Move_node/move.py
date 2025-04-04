@@ -19,14 +19,10 @@ class Context(object):
 
 
 def move_node(source, dest):
-    source_new = source.split(" -> ")
-    dest_new = dest.split(" -> ")
-    dest_new.insert(0, source_new[0])
-    del source_new[0]
-    source_new = " -> ".join(source_new)
-    dest_new = " -> ".join(dest_new)
-    return Context(source_new, dest_new)
-
+    new_source = source.next
+    source.next = dest
+    new_dest = source
+    return Context(new_source, new_dest)
 
 # source = "1 -> 2 -> 3 -> None"
 # dest = "4 -> 5 -> 6 -> None"
